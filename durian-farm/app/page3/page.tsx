@@ -1,6 +1,7 @@
 'use client'
 import React, { useState } from 'react'
 import 'flowbite';
+import Link from 'next/link';
 
 export default function Home() {
 
@@ -759,7 +760,9 @@ export default function Home() {
         </div>
         <div className='mt-8'>
           <button className="ml-2 border border-black text-black font-semibold py-2 px-4 rounded-full">
-            ดูการทำนายผลผลิต
+            <Link href="/page4" scroll={false}>
+              ดูการทำนายผลผลิต
+            </Link>
           </button>
         </div>
       </div>

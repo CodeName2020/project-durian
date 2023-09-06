@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 export default function Home() {
@@ -25,7 +26,9 @@ export default function Home() {
         </p>
         <div className="mt-6 flex space-x-4">
           <button className="bg-yellow-500 text-white flex items-center justify-center font-semibold py-2 px-4 rounded-full">
-            เริ่มใช้งาน
+            <Link href="/page2" scroll={false}>
+              เริ่มใช้งาน
+            </Link>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
