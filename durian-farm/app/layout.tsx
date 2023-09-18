@@ -7,7 +7,7 @@ import { AuthContextProvider } from './context/AuthContext'
 
 const inter = Inter({ subsets: ['latin'] })
 
-const metadata: Metadata = {
+export const metadata: Metadata = {
   title: 'Home Page',
   description: 'this is a home page for log in',
 }
