@@ -2,6 +2,10 @@
 import React, { useState } from 'react'
 import 'flowbite';
 import Link from 'next/link';
+import Image from 'next/image';
+import FarmPic from '@/public/rrr.png'
+import Ico1 from '@/public/ico1.png'
+import Ico2 from '@/public/ico2.png'
 
 export default function Home() {
 
@@ -17,22 +21,14 @@ export default function Home() {
 
       {/* content dashboard */}
       <div className='relative flex items-center justify-center'>
-        <img
-          src="/rrr.png"
-          alt="Farm Page3"
-          className="w-4/5"
-        />
+        <Image src={FarmPic} alt={'Farm Page 3'} className='w-4/5' priority={true} />
         {/* Overlay Box left*/}
         <div className='absolute left-0 top-0 h-full w-2/3 flex items-center justify-center'>
           <div className='font-bold'>
             <div className='flex space-x-8'>
               <div className='bg-white flex flex-col w-6/7 px-4 py-8'>
                 <div className=''>
-                  <img
-                    src="ico1.png"
-                    width="30"
-                    height="34"
-                  ></img>
+                  <Image src={Ico1} alt={'Farm Page 4'} className='w-[30px] h-[34px]' priority={true} />
                 </div>
                 <div>
                   <h2 className="text-4xl font-medium">200 ต้น</h2>
@@ -41,11 +37,7 @@ export default function Home() {
               </div>
               <div className='bg-white flex flex-col w-6/7 px-4 py-8'>
                 <div className=''>
-                  <img
-                    src="ico2.png"
-                    width="36"
-                    height="49"
-                  ></img>
+                  <Image src={Ico2} alt={'Farm Page 5'} className='w-[34px] h-[34px]' priority={true} />
                 </div>
                 <div>
                   <h2 className="text-4xl font-medium">2000 ลูก</h2>

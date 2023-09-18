@@ -1,5 +1,7 @@
-import Link from 'next/link'
 import React from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
+import profilePic from '@/public/werwer.png'
 
 export default function Home() {
   return (
@@ -48,11 +50,7 @@ export default function Home() {
 
       {/* pic side */}
       <div className="w-1/2">
-        <img
-          src="/werwer.png"
-          alt="Durian Farm"
-          className="object-cover w-full h-full"
-        />
+        <Image src={profilePic} alt={'Durian Farm'} className='object-cover w-full h-full' priority={true} />
       </div>
     </section>
   )

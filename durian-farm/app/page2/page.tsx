@@ -1,5 +1,8 @@
-import Link from 'next/link'
 import React from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
+import profilePic2 from '@/public/srr.png'
+import CardPic from '@/public/card.png'
 
 export default function Home() {
   return (
@@ -7,11 +10,7 @@ export default function Home() {
       {/* Content Section 1 */}
       <div className="flex justify-center items-center">
         <div className="w-1/2 mb-8 aspect-square">
-          <img
-            src="/srr.png"
-            alt="Image"
-            className="object-cover w-full h-full"
-          />
+          <Image src={profilePic2} alt={'Durian Farm 2'} className='object-cover w-full h-full' priority={true} />
         </div>
         <div className="w-2/3">
           <div className='flex flex-col items-center'>
@@ -95,7 +94,7 @@ export default function Home() {
           <div className="flex flex-wrap justify-between">
             <div className="w-full md:w-1/3 mb-4 px-2">
               <div className="border border-gray-300 p-4 rounded-md shadow-md">
-                <img src="/card.png" alt="Card 1" className="w-full h-40 object-cover mb-2" />
+                <Image src={CardPic} alt={'Card Pic'} className='w-full h-40 object-cover mb-2' priority={true} />
                 <h2 className="text-xl font-semibold">ฟาร์มทุเรียนสุชาวัฒน์</h2>
                 <p className="text-gray-600">จังหวัดระยอง, ประเทศไทย
                   สายพันธุ์ทุเรียน ทุเรียนหมอนทอง
@@ -105,7 +104,7 @@ export default function Home() {
 
             <div className="w-full md:w-1/3 mb-4 px-2">
               <div className="border border-gray-300 p-4 rounded-md shadow-md">
-                <img src="/card.png" alt="Card 1" className="w-full h-40 object-cover mb-2" />
+                <Image src={CardPic} alt={'Card Pic'} className='w-full h-40 object-cover mb-2' priority={true} />
                 <h2 className="text-xl font-semibold">ฟาร์มทุเรียนสวรรค์สมบุญ</h2>
                 <p className="text-gray-600">จังหวัดชลบุรี, ประเทศไทยสายพันธุ์ทุเรียน ทุเรียนเขียวเสวยจำนวนทุเรียนวันนี้ 800 ลูก</p>
               </div>
@@ -113,7 +112,7 @@ export default function Home() {
 
             <div className="w-full md:w-1/3 mb-4 px-2">
               <div className="border border-gray-300 p-4 rounded-md shadow-md">
-                <img src="/card.png" alt="Card 1" className="w-full h-40 object-cover mb-2" />
+                <Image src={CardPic} alt={'Card Pic'} className='w-full h-40 object-cover mb-2' priority={true} />
                 <h2 className="text-xl font-semibold">ฟาร์มทุเรียนรุ่งโรจน์</h2>
                 <p className="text-gray-600">จังหวัดนครราชสีมา, ประเทศไทยสายพันธุ์ทุเรียน ทุเรียนก้านยาวจำนวนทุเรียนวันนี้ 1200 ลูก</p>
               </div>
@@ -122,7 +121,7 @@ export default function Home() {
           <div className="flex flex-wrap justify-between">
             <div className="w-full md:w-1/3 mb-4 px-2">
               <div className="border border-gray-300 p-4 rounded-md shadow-md">
-                <img src="/card.png" alt="Card 1" className="w-full h-40 object-cover mb-2" />
+                <Image src={CardPic} alt={'Card Pic'} className='w-full h-40 object-cover mb-2' priority={true} />
                 <h2 className="text-xl font-semibold">ฟาร์มทุเรียนพันธุ์สยาม</h2>
                 <p className="text-gray-600">จังหวัดสุพรรณบุรี, ประเทศไทยสายพันธุ์ทุเรียน ทุเรียนเขียวใหญ่จำนวนทุเรียนวันนี้ 1500 ลูก</p>
               </div>
@@ -130,14 +129,14 @@ export default function Home() {
 
             <div className="w-full md:w-1/3 mb-4 px-2">
               <div className="border border-gray-300 p-4 rounded-md shadow-md">
-                <img src="/card.png" alt="Card 1" className="w-full h-40 object-cover mb-2" />
+                <Image src={CardPic} alt={'Card Pic'} className='w-full h-40 object-cover mb-2' priority={true} />
                 <h2 className="text-xl font-semibold">ฟาร์มทุเรียนวิสุทธิ์</h2>
                 <p className="text-gray-600">จังหวัดเพชรบุรี, ประเทศไทยสายพันธุ์ทุเรียน ทุเรียนมอญจำนวนทุเรียนวันนี้ 900 ลูก</p>
               </div>
             </div>
             <div className="w-full md:w-1/3 mb-4 px-2">
               <div className="border border-gray-300 p-4 rounded-md shadow-md">
-                <img src="/card.png" alt="Card 1" className="w-full h-40 object-cover mb-2" />
+                <Image src={CardPic} alt={'Card Pic'} className='w-full h-40 object-cover mb-2' priority={true} />
                 <h2 className="text-xl font-semibold">ฟาร์มทุเรียนลีลาวดี</h2>
                 <p className="text-gray-600">จังหวัดระนอง, ประเทศไทยสายพันธุ์ทุเรียน ทุเรียนพวงกุญแจจำนวนทุเรียนวันนี้ 600 ลูก</p>
               </div>
