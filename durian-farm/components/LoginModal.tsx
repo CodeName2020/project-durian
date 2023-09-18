@@ -17,14 +17,11 @@ const LoginModal: React.FC<LoginModalProps> = ({ onClose }) => {
     const handleSignIn = async () => {
         try {
             await googleSignIn();
-            onClose();
         } catch (error) {
             console.log(error);
         }
     }
-
     console.log(user)
-
     return (
         <div className='fixed flex justify-center items-center w-full p-4 md:inset-0 bg-black bg-opacity-50 z-50'>
             <div className='relative w-full max-w-md max-h-full'>
