@@ -17,6 +17,7 @@ const LoginModal: React.FC<LoginModalProps> = ({ onClose }) => {
     const handleSignIn = async () => {
         try {
             await googleSignIn();
+            onClose();
         } catch (error) {
             console.log(error);
         }
