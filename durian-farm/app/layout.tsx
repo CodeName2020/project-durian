@@ -7,11 +7,6 @@ import { AuthContextProvider } from './context/AuthContext'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export const metadata: Metadata = {
-  title: 'Home Page',
-  description: 'this is a home page for log in',
-}
-
 export default function RootLayout({
   children,
 }: {
