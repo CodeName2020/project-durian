@@ -106,7 +106,7 @@ export default function Home() {
                     <div className="pt-5">
                         <a href="#" className="px-5 py-2 text-2xl font-normal inline-flex items-center rounded-full text-center border-2 border-yellow-500 text-yellow-500">
                             <svg width="60" height="2" viewBox="0 0 60 2" fill="none" xmlns="http://www.w3.org/2000/svg" className='mr-6'>
-                                <path d="M0 1H60" stroke="#B46A07" stroke-width="2" />
+                                <path d="M0 1H60" stroke="#B46A07" strokeWidth="2" />
                             </svg>
 
                             ผลผลิตจริง
@@ -115,7 +115,7 @@ export default function Home() {
                     <div className="pt-5">
                         <a href="#" className="px-5 py-2 text-2xl font-normal inline-flex items-center rounded-full text-center border-2 border-black">
                             <svg width="60" height="2" viewBox="0 0 60 2" fill="none" xmlns="http://www.w3.org/2000/svg" className='mr-4'>
-                                <path d="M0 1H60" stroke="black" stroke-width="2" stroke-dasharray="10 10" />
+                                <path d="M0 1H60" stroke="black" strokeWidth="2" strokeDasharray="10 10" />
                             </svg>
                             ผลผลิตที่ทำนาย
                         </a>

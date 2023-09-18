@@ -49,7 +49,7 @@ export default function Home() {
                     <div className="pt-5">
                         <a href="#" className="px-5 py-2 text-2xl font-normal inline-flex items-center rounded-full text-center border-2 border-yellow-500 text-yellow-500">
                             <svg width="60" height="2" viewBox="0 0 60 2" fill="none" xmlns="http://www.w3.org/2000/svg" className='mr-6'>
-                                <path d="M0 1H60" stroke="#B46A07" stroke-width="2" />
+                                <path d="M0 1H60" stroke="#B46A07" strokeWidth="2" />
                             </svg>
 
                             ผลผลิตจริง
@@ -58,7 +58,7 @@ export default function Home() {
                     <div className="pt-5">
                         <a href="#" className="px-5 py-2 text-2xl font-normal inline-flex items-center rounded-full text-center border-2 border-black">
                             <svg width="60" height="2" viewBox="0 0 60 2" fill="none" xmlns="http://www.w3.org/2000/svg" className='mr-4'>
-                                <path d="M0 1H60" stroke="black" stroke-width="2" stroke-dasharray="10 10" />
+                                <path d="M0 1H60" stroke="black" strokeWidth="2" strokeDasharray="10 10" />
                             </svg>
                             ผลผลิตที่ทำนาย
                         </a>
@@ -148,7 +148,7 @@ export default function Home() {
                         <li>
                             <a href="#" className="flex items-center justify-center px-4 h-10 ml-0  border-2 border-black rounded-l-lg hover:bg-gray-100 hover:text-gray-700">
                                 <svg className="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4" />
+                                    <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 1 1 5l4 4" />
                                 </svg>
                             </a>
                         </li>
@@ -164,7 +164,7 @@ export default function Home() {
                         <li>
                             <a href="#" className="flex items-center justify-center px-4 h-10 border-2 border-black rounded-r-lg hover:bg-gray-100 hover:text-gray-700">
                                 <svg className="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
+                                    <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 9 4-4-4-4" />
                                 </svg>
                             </a>
                         </li>

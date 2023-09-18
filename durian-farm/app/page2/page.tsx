@@ -76,7 +76,7 @@ export default function Home() {
           <div className="w-1/3">
             <div className="flex ml-2">
               <select className="border border-black rounded-full py-2 px-4 w-full appearance-none">
-                <option value='' defaultValue='' disabled selected>
+                <option defaultValue='msg' disabled selected>
                   จัดเรียงตาม
                 </option>
                 <option value="option1">Option 1</option>
