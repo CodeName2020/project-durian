@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import LoginModal from './LoginModal'
+import { UserAuth } from '@/app/context/AuthContext'
 
 const Navbar = () => {
     const [state, setState] = useState(false)
@@ -11,6 +12,17 @@ const Navbar = () => {
     const closePop = () => {
         setState(false); // Close the popup by setting state to false
     }
+
+    const { user, logOut} = UserAuth(); 
+
+    const handleSignOut = async () => {
+        try {
+            await logOut();
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     return (
         <nav className="flex justify-between items-center">
             <div className="text-black font-semibold text-lg">
@@ -25,11 +37,19 @@ const Navbar = () => {
                     </svg>
                 </Link>
             </div>
-            <div className="">
+            {!user ? (
+                <div className="">
                 <button onClick={togglePopup} className="block bg-yellow-500 text-xl font-semibold text-white py-2 px-4 rounded-full">
-                    เข้าสู่ระบบ
+                   เข้าสู่ระบบ
                 </button>
             </div>
+            ) : (
+                <div className="">
+                <button onClick={handleSignOut} className="block bg-yellow-500 text-xl font-semibold text-white py-2 px-4 rounded-full">
+                   {user.displayName}
+                </button>
+            </div>
+            )}
             {state && <LoginModal onClose={closePop} />}
         </nav>
     )

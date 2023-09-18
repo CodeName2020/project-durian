@@ -26,7 +26,7 @@ export default function Home() {
             {/* last cont: Display Charts */}
             <div className='my-14 m-6'>
                 <div className="flex justify-between mb-5">
-                    <div className="grid gap-4 items-center">
+                    <div className="gap-4 items-center">
                         <p className="text-2xl leading-none font-semibold">จำนวนทุเรียน (พันลูก)</p>
                     </div>
                     <div>
@@ -68,10 +68,7 @@ export default function Home() {
             {/* table cont */}
             <div className='flex justify-center my-8'>
                 <div className='flex justify-end mr-2'>
-                    <input type="number" className="border-2 border-yellow-500 text-3xl font-normal text-yellow-500 text-md block text-center w-2/5 p-1 drop-shadow-md"
-                        placeholder="วัน"
-                        required
-                    />
+                    <input type="number" className="flex border-2 border-yellow-500 text-3xl font-normal text-yellow-500 text-md text-center w-2/5 p-1 drop-shadow-md" placeholder="วัน"/>
                 </div>
 
                 <div className='flex items-center text-3xl font-normal justify-start lg:mr-44'>

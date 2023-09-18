@@ -57,7 +57,8 @@ export default function Home() {
         <div className="w-full h-12 border-black border-2 p-0.5 rounded-full overflow-hidden">
           <div className="bg-yellow-500 h-full w-3/4 rounded-full"></div>
         </div>
-        <div className='mt-2'>
+        <div className='mt-1 lg:ml-[380px]'>
+          <div className='border-l-[50px] border-l-transparent border-b-[30px] border-b-yellow-500 border-r-[50px] border-r-transparent'></div>
           <div className='bg-yellow-500'>
             <p className="text-4xl text-white font-bold text-center p-2">90%</p>
           </div>
@@ -73,7 +74,7 @@ export default function Home() {
           </div>
 
           <div className="w-1/3">
-            <div className="relative ml-2">
+            <div className="flex ml-2">
               <select className="border border-black rounded-full py-2 px-4 w-full appearance-none">
                 <option value='' defaultValue='' disabled selected>
                   จัดเรียงตาม
