@@ -1,10 +1,35 @@
-import React from 'react'
+'use client'
+import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import profilePic2 from '@/public/srr.png'
-import CardPic from '@/public/card.png'
+import CardPage2 from '@/components/CardPage2'
+
+import { collection, doc, getDocs } from 'firebase/firestore'
+import { db } from '../firebase'
 
 export default function Home() {
+  const [ totalNumOfFruit, setTotalNumOfFruit ] = useState(0);
+
+  useEffect(() => {
+    const fchTotalNumberOfFruit = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, 'farm-name'));
+        let total = 0;
+
+        querySnapshot.forEach((doc) => {
+          const data = doc.data();
+          total += parseInt(data.numoffruit);
+        })
+        setTotalNumOfFruit(total);
+      } catch (error) {
+        console.log(error)
+        alert(error)
+      }
+    }
+    fchTotalNumberOfFruit()
+  })
+
   return (
     <section className="flex h-full w-full flex-col justify-center items-center overflow-hidden">
       {/* Content Section 1 */}
@@ -52,7 +77,7 @@ export default function Home() {
       </div>
       {/* progress content */}
       <div className="w-1/2 flex flex-col items-center mb-4">
-        <h1 className="text-6xl font-bold mb-4">เก็บแล้วรวม 5000 ลูก</h1>
+        <h1 className="text-6xl font-bold mb-4">เก็บแล้วรวม {totalNumOfFruit} ลูก</h1>
         <div className="w-full h-12 border-black border-2 p-0.5 rounded-full overflow-hidden">
           <div className="bg-yellow-500 h-full w-3/4 rounded-full"></div>
         </div>
@@ -89,60 +114,8 @@ export default function Home() {
 
         </div>
         {/* card content */}
-        <div className='w-1/2 items-center mb-4'>
+        <CardPage2 />
 
-          <div className="flex flex-wrap justify-between">
-            <div className="w-full md:w-1/3 mb-4 px-2">
-              <div className="border border-gray-300 p-4 rounded-md shadow-md">
-                <Image src={CardPic} alt={'Card Pic'} className='w-full h-40 object-cover mb-2' priority={true} />
-                <h2 className="text-xl font-semibold">ฟาร์มทุเรียนสุชาวัฒน์</h2>
-                <p className="text-gray-600">จังหวัดระยอง, ประเทศไทย
-                  สายพันธุ์ทุเรียน ทุเรียนหมอนทอง
-                  จำนวนทุเรียนวันนี้ 1000 ลูก</p>
-              </div>
-            </div>
-
-            <div className="w-full md:w-1/3 mb-4 px-2">
-              <div className="border border-gray-300 p-4 rounded-md shadow-md">
-                <Image src={CardPic} alt={'Card Pic'} className='w-full h-40 object-cover mb-2' priority={true} />
-                <h2 className="text-xl font-semibold">ฟาร์มทุเรียนสวรรค์สมบุญ</h2>
-                <p className="text-gray-600">จังหวัดชลบุรี, ประเทศไทยสายพันธุ์ทุเรียน ทุเรียนเขียวเสวยจำนวนทุเรียนวันนี้ 800 ลูก</p>
-              </div>
-            </div>
-
-            <div className="w-full md:w-1/3 mb-4 px-2">
-              <div className="border border-gray-300 p-4 rounded-md shadow-md">
-                <Image src={CardPic} alt={'Card Pic'} className='w-full h-40 object-cover mb-2' priority={true} />
-                <h2 className="text-xl font-semibold">ฟาร์มทุเรียนรุ่งโรจน์</h2>
-                <p className="text-gray-600">จังหวัดนครราชสีมา, ประเทศไทยสายพันธุ์ทุเรียน ทุเรียนก้านยาวจำนวนทุเรียนวันนี้ 1200 ลูก</p>
-              </div>
-            </div>
-          </div>
-          <div className="flex flex-wrap justify-between">
-            <div className="w-full md:w-1/3 mb-4 px-2">
-              <div className="border border-gray-300 p-4 rounded-md shadow-md">
-                <Image src={CardPic} alt={'Card Pic'} className='w-full h-40 object-cover mb-2' priority={true} />
-                <h2 className="text-xl font-semibold">ฟาร์มทุเรียนพันธุ์สยาม</h2>
-                <p className="text-gray-600">จังหวัดสุพรรณบุรี, ประเทศไทยสายพันธุ์ทุเรียน ทุเรียนเขียวใหญ่จำนวนทุเรียนวันนี้ 1500 ลูก</p>
-              </div>
-            </div>
-
-            <div className="w-full md:w-1/3 mb-4 px-2">
-              <div className="border border-gray-300 p-4 rounded-md shadow-md">
-                <Image src={CardPic} alt={'Card Pic'} className='w-full h-40 object-cover mb-2' priority={true} />
-                <h2 className="text-xl font-semibold">ฟาร์มทุเรียนวิสุทธิ์</h2>
-                <p className="text-gray-600">จังหวัดเพชรบุรี, ประเทศไทยสายพันธุ์ทุเรียน ทุเรียนมอญจำนวนทุเรียนวันนี้ 900 ลูก</p>
-              </div>
-            </div>
-            <div className="w-full md:w-1/3 mb-4 px-2">
-              <div className="border border-gray-300 p-4 rounded-md shadow-md">
-                <Image src={CardPic} alt={'Card Pic'} className='w-full h-40 object-cover mb-2' priority={true} />
-                <h2 className="text-xl font-semibold">ฟาร์มทุเรียนลีลาวดี</h2>
-                <p className="text-gray-600">จังหวัดระนอง, ประเทศไทยสายพันธุ์ทุเรียน ทุเรียนพวงกุญแจจำนวนทุเรียนวันนี้ 600 ลูก</p>
-              </div>
-            </div>
-          </div>
-        </div>
         <button className="bg-yellow-500 text-white flex items-center justify-center font-semibold py-2 px-4 rounded-full ">
           <svg
             xmlns="http://www.w3.org/2000/svg"

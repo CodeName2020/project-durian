@@ -1,9 +1,44 @@
-import React from 'react'
+'use client'
+import React, { ChangeEvent, useEffect, useState } from 'react'
 import Dropdown from '@/components/Dropdown'
 import TryChart from '@/components/TryChart'
 import Link from 'next/link'
 
+import ReadFarmName from '../context/ReadName'
+import { db } from '../firebase'
+import { collection, doc, getDoc } from 'firebase/firestore'
+
 export default function Home() {
+    const [collectingValue, setCollectingValue] = useState(0);
+    const [selectedFarm, setSelectedFarm] = useState('');
+
+    const handleChoose = (event: ChangeEvent<HTMLSelectElement>) => {
+        setSelectedFarm(event.target.value); // Update selectedFarm state when user changes selection
+    }
+
+    useEffect(() => {
+        const readData = async () => {
+            try {
+                if (selectedFarm) { // Make sure there's a selectedFarm before trying to fetch data
+                    const farmRef = doc(collection(db, "farm-name"), selectedFarm);
+                    const farmDoc = await getDoc(farmRef);
+
+                    if (farmDoc.exists()) {
+                        const data = farmDoc.data();
+                        setCollectingValue(data.collecting);
+                    } else {
+                        console.log("No such document!");
+                    }
+                }
+            } catch (error) {
+                console.log(error);
+                alert(error);
+            }
+        };
+
+        readData();
+    }, [selectedFarm]);
+
     return (
         <section className="flex h-full w-full flex-col overflow-hidden">
             {/* head cont */}
@@ -14,12 +49,17 @@ export default function Home() {
             </div>
             <div className='flex justify-center'>
                 <div className='mb-4'>
-                    <select className="font-normal text-gray-900 rounded-lg border-0 px-4 py-3 text-3xl text-center focus:ring-white ">
-                        <option selected>ฟาร์มทุเรียนสวรรค์สมบุญ</option>
-                        <option value="US">ฟาร์มทุเรียนสวรรค์สมบุญ 1</option>
-                        <option value="CA">ฟาร์มทุเรียนสวรรค์สมบุญ 2</option>
-                        <option value="FR">ฟาร์มทุเรียนสวรรค์สมบุญ 3</option>
-                        <option value="DE">ฟาร์มทุเรียนสวรรค์สมบุญ 4</option>
+                    <select
+                        className="font-normal text-gray-900 rounded-lg border-0 px-4 py-3 text-3xl text-center focus:ring-white "
+                        onChange={handleChoose} // Added event handler for select change
+                    >
+                        <option selected>ฟาร์มทุเรียน</option>
+                        <option value="2TZyg8ml44iNsV4NFut5">ฟาร์มทุเรียน{<ReadFarmName farmId={'2TZyg8ml44iNsV4NFut5'} />}</option>
+                        <option value="7ZS26vW3GjYqGROCwXaE">ฟาร์มทุเรียน{<ReadFarmName farmId={'7ZS26vW3GjYqGROCwXaE'} />}</option>
+                        <option value="DKZINIOnADgd1Z8MboJK">ฟาร์มทุเรียน{<ReadFarmName farmId={'DKZINIOnADgd1Z8MboJK'} />}</option>
+                        <option value="L5Nzl2VVQoqph92p1qto">ฟาร์มทุเรียน{<ReadFarmName farmId={'L5Nzl2VVQoqph92p1qto'} />}</option>
+                        <option value="TgFDUOrFJjlV88tGgWUX">ฟาร์มทุเรียน{<ReadFarmName farmId={'TgFDUOrFJjlV88tGgWUX'} />}</option>
+                        <option value="s81qBNfOgRc8E7gGfS7q">ฟาร์มทุเรียน{<ReadFarmName farmId={'s81qBNfOgRc8E7gGfS7q'} />}</option>
                     </select>
                 </div>
             </div>
@@ -68,11 +108,11 @@ export default function Home() {
             {/* table cont */}
             <div className='flex justify-center my-8'>
                 <div className='flex justify-end mr-2'>
-                    <input type="number" className="flex border-2 border-yellow-500 text-3xl font-normal text-yellow-500 text-md text-center w-2/5 p-1 drop-shadow-md" placeholder="วัน"/>
+                    <input type="number" className="flex border-2 border-yellow-500 text-3xl font-normal text-yellow-500 text-md text-center w-2/5 p-1 drop-shadow-md" placeholder="วัน" />
                 </div>
 
                 <div className='flex items-center text-3xl font-normal justify-start lg:mr-44'>
-                    จะมีทุเรียนพร้อมที่จะเก็บทั้งหมด 500 ลูก
+                    จะมีทุเรียนพร้อมที่จะเก็บทั้งหมด {collectingValue} ลูก
                 </div>
             </div>
             <div className='flex justify-center m-4'>
