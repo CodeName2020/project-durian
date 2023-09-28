@@ -1,23 +1,26 @@
 'use client'
 import './globals.css'
-import { Inter } from 'next/font/google'
+import localFont from 'next/font/local'
+import { BrowserRouter } from 'react-router-dom'
+import App from './page'
 import Navbar from '@/components/Navbar'
-import { AuthContextProvider } from './context/AuthContext'
 
-const inter = Inter({ subsets: ['latin'] })
-
+const myFont = localFont({
+  src: './font/Quark-Bold.otf',
+  display: 'swap',
+})
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={myFont.className}>
       <body className="bg-white" suppressHydrationWarning={true}>
-        <AuthContextProvider>
+        <BrowserRouter>
           <Navbar />
-          {children}
-        </AuthContextProvider>
+          <App />
+        </BrowserRouter>
       </body>
     </html>
   )

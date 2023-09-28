@@ -1,0 +1,23 @@
+    const [farmData, setFarmData] = useState<FarmDataType[]>([]);
+
+    const fetchAllFarms = async () => {
+        const farmRef = collection(db, 'Farm');
+        const farmSnapshot = await getDocs(farmRef);
+        return farmSnapshot.docs.map(doc => doc.data() as FarmDataType);
+    }
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const allFarmData = await fetchAllFarms();
+            setFarmData(allFarmData);
+
+            const unsubscribe = onSnapshot(collection(db, 'Farm'), (querySnapshot) => {
+                const updatedData = querySnapshot.docs.map(doc => doc.data() as FarmDataType);
+                setFarmData(updatedData);
+            });
+
+            return () => unsubscribe();
+        };
+
+        fetchData();
+    }, []);
